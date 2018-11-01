@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-zendrive",
+  "version": "0.1.0",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-zendrive",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trackerup/cordova-plugin-zendrive.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Tracker UP",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/trackerup/cordova-plugin-zendrive/issues"
+  },
+  "homepage": "https://github.com/trackerup/cordova-plugin-zendrive#readme"
+}
