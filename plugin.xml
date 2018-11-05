@@ -9,11 +9,49 @@
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="ZendrivePlugin">
-                <param name="android-package" value="cordova-plugin-zendrive.ZendrivePlugin" />
+                <param name="android-package" value="cordova.plugin.zendrive.ZendrivePlugin" />
+                <param name="onload" value="true" />
             </feature>
         </config-file>
-        <config-file parent="/*" target="AndroidManifest.xml" />
-        <source-file src="src/android/ZendrivePlugin.java" target-dir="src/cordova-plugin-zendrive/ZendrivePlugin" />
+        <config-file parent="/*" target="AndroidManifest.xml" >
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+
+            <!-- This permission is needed for automatic drive detection by Zendrive. -->
+            <uses-permission android:name= "com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+
+            <!-- This permission is needed so that Zendrive can track drives completely. This prevents Android from shutting down phone CPU in the middle of a drive. -->
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.zendrive.sdk.services.UserActivityService" />
+            <service android:name="com.zendrive.sdk.services.ZendriveService" />
+            <receiver android:name="cordova.plugin.zendrive.ZendriveCordovaBroadcastReceiver" android:label="ZendriveCordovaBroadcastReceiver"></receiver>
+            <service android:name="cordova.plugin.zendrive.ZendriveIntentService" />
+        </config-file>
+
+        <resource-file src="src/android/ZendriveStrings.xml" target="res/values/ZendriveStrings.xml" />
+
+        <source-file src="src/android/ZendrivePlugin.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/ZendriveCordovaBroadcastReceiver.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/ZendriveManager.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/ZendriveIntentService.java" target-dir="src/cordova/plugin/zendrive" />
+
+        <source-file src="src/android/Constants.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/NotificationUtility.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/SharedPreferenceManager.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/SplashActivity.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/TripListDetails.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/ZendriveSdkBroadcastReceiver.java" target-dir="src/cordova/plugin/zendrive" />
+        <source-file src="src/android/ZendriveSdkNotificationProvider.java" target-dir="src/cordova/plugin/zendrive" />
+
+        <!-- External Libraries -->
+        <framework src="com.google.android.gms:play-services-location:8.4.0" />
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
