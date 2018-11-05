@@ -36,7 +36,6 @@
         <resource-file src="src/android/ZendriveStrings.xml" target="res/values/ZendriveStrings.xml" />
 
         <source-file src="src/android/ZendrivePlugin.java" target-dir="src/cordova/plugin/zendrive" />
-        <source-file src="src/android/ZendriveCordovaBroadcastReceiver.java" target-dir="src/cordova/plugin/zendrive" />
         <source-file src="src/android/ZendriveManager.java" target-dir="src/cordova/plugin/zendrive" />
         <source-file src="src/android/ZendriveIntentService.java" target-dir="src/cordova/plugin/zendrive" />
 
