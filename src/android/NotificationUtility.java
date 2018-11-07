@@ -13,10 +13,8 @@ import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 
+import com.example.hello.MainActivity;
 import com.google.android.gms.location.LocationSettingsResult;
-
-import br.com.pulluptecnologia.tracker.MainActivity;
-import br.com.pulluptecnologia.tracker.R;
 
 import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
 
@@ -67,7 +65,7 @@ public class NotificationUtility {
                 .setContentTitle("Location Permission Denied")
                 .setTicker("Location Permission Denied")
                 .setContentText("Grant location permission to Zendrive app.")
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .setOnlyAlertOnce(true)
                 .setContentIntent(pi)
                 .setAutoCancel(true)
@@ -91,10 +89,10 @@ public class NotificationUtility {
                 callGPSSettingIntent, 0);
 
         return new NotificationCompat.Builder(context.getApplicationContext(), SETTINGS_CHANNEL_KEY)
-                .setContentTitle(context.getResources().getString(R.string.location_disabled))
-                .setTicker(context.getResources().getString(R.string.location_disabled))
-                .setContentText(context.getResources().getString(R.string.enable_location))
-                .setSmallIcon(R.mipmap.icon)
+                .setContentTitle(context.getResources().getString((context.getResources().getIdentifier("location_disabled", "string", MainActivity.class.getPackage().getName()))))
+                .setTicker(context.getResources().getString((context.getResources().getIdentifier("location_disabled", "string", MainActivity.class.getPackage().getName()))))
+                .setContentText(context.getResources().getString((context.getResources().getIdentifier("enable_location", "string", MainActivity.class.getPackage().getName()))))
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setContentIntent(pendingIntent)
                 .setCategory(NotificationCompat.CATEGORY_ERROR)
@@ -124,7 +122,7 @@ public class NotificationUtility {
                 .setContentTitle("Location Settings Error")
                 .setTicker("Location Settings Error")
                 .setContentText("Tap here to resolve.")
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .setOnlyAlertOnce(true)
                 .setContentIntent(pi)
                 .setAutoCancel(true)
@@ -154,7 +152,7 @@ public class NotificationUtility {
                 .setOnlyAlertOnce(true)
                 .setAutoCancel(true)
                 .setContentIntent(pi)
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .build();
     }
 
@@ -179,7 +177,7 @@ public class NotificationUtility {
                 .setOnlyAlertOnce(true)
                 .setContentIntent(pi)
                 .setAutoCancel(true)
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .build();
     }
 
@@ -205,7 +203,7 @@ public class NotificationUtility {
                 .setOnlyAlertOnce(true)
                 .setContentIntent(pi)
                 .setAutoCancel(true)
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .build();
     }
 
@@ -222,7 +220,7 @@ public class NotificationUtility {
         // suppresses deprecated warning for setPriority(PRIORITY_MIN)
         //noinspection deprecation
         return new NotificationCompat.Builder(context, FOREGROUND_CHANNEL_KEY)
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .setContentTitle("Zendrive")
                 .setDefaults(0)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
@@ -242,7 +240,7 @@ public class NotificationUtility {
     public static Notification createInDriveNotification(Context context) {
         createNotificationChannels(context);
         return new NotificationCompat.Builder(context, FOREGROUND_CHANNEL_KEY)
-                .setSmallIcon(R.mipmap.icon)
+                .setSmallIcon(context.getResources().getIdentifier("icon", "mipmap", MainActivity.class.getPackage().getName()))
                 .setContentTitle("Zendrive")
                 .setCategory(NotificationCompat.CATEGORY_SERVICE)
                 .setContentText("Drive started.")

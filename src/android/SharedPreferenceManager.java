@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.example.hello.MainActivity;
 import com.zendrive.sdk.ZendriveDriveDetectionMode;
 
-import br.com.pulluptecnologia.tracker.R;
 
 /**
  * Shared Preferences saved by the application.
@@ -47,7 +47,7 @@ public class SharedPreferenceManager {
 
     public static ZendriveDriveDetectionMode getZendriveAutoDetectionMode(Context context){
         String modeString = getZendriveAutoDetectionModeString(context);
-        String autoOffString = context.getResources().getString(R.string.auto_off);
+        String autoOffString = context.getResources().getString(context.getResources().getIdentifier("auto_off", "string", MainActivity.class.getPackage().getName()));
 
         if(modeString.equals(autoOffString)) {
             return ZendriveDriveDetectionMode.AUTO_OFF;
@@ -57,7 +57,7 @@ public class SharedPreferenceManager {
 
     public static String getZendriveAutoDetectionModeString(Context context) {
         return getStringPreference(context, KEY_DETECTION_MODE_PREFERENCE,
-                context.getResources().getString(R.string.auto_on));
+                context.getResources().getString(context.getResources().getIdentifier("auto_on", "string", MainActivity.class.getPackage().getName())));
     }
 
     public static void setZendriveAutoDetectionModeString(Context context, String modeString) {
@@ -66,8 +66,8 @@ public class SharedPreferenceManager {
 
     public static void setZendriveAutoDetectionMode(
             Context context, ZendriveDriveDetectionMode driveDetectionMode){
-        String autoOnString = context.getResources().getString(R.string.auto_on);
-        String autoOffString = context.getResources().getString(R.string.auto_off);
+        String autoOnString = context.getResources().getString(context.getResources().getIdentifier("auto_on", "string", MainActivity.class.getPackage().getName()));
+        String autoOffString = context.getResources().getString(context.getResources().getIdentifier("auto_off", "string", MainActivity.class.getPackage().getName()));
         String modeString = driveDetectionMode == ZendriveDriveDetectionMode.AUTO_OFF ?
                 autoOffString: autoOnString;
         setZendriveAutoDetectionModeString(context, modeString);

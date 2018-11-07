@@ -30,14 +30,12 @@
             <service android:name="com.zendrive.sdk.services.UserActivityService" />
             <service android:name="com.zendrive.sdk.services.ZendriveService" />
             <receiver android:name="cordova.plugin.zendrive.ZendriveCordovaBroadcastReceiver" android:label="ZendriveCordovaBroadcastReceiver"></receiver>
-            <service android:name="cordova.plugin.zendrive.ZendriveIntentService" />
         </config-file>
 
         <resource-file src="src/android/ZendriveStrings.xml" target="res/values/ZendriveStrings.xml" />
 
         <source-file src="src/android/ZendrivePlugin.java" target-dir="src/cordova/plugin/zendrive" />
         <source-file src="src/android/ZendriveManager.java" target-dir="src/cordova/plugin/zendrive" />
-        <source-file src="src/android/ZendriveIntentService.java" target-dir="src/cordova/plugin/zendrive" />
 
         <source-file src="src/android/Constants.java" target-dir="src/cordova/plugin/zendrive" />
         <source-file src="src/android/NotificationUtility.java" target-dir="src/cordova/plugin/zendrive" />

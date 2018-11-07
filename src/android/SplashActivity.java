@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 
-import br.com.pulluptecnologia.tracker.MainActivity;
+import com.example.hello.MainActivity;
+
 
 public class SplashActivity extends FragmentActivity {
 

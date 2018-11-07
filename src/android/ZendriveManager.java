@@ -194,7 +194,7 @@ public class ZendriveManager {
                             break;
                         }
                         case BACKGROUND_RESTRICTION_ENABLED: {
-                            if (Build.VERSION.SDK_INT >= 27) {
+                            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
                                 notificationManager.notify(NotificationUtility.
                                                 BACKGROUND_RESTRICTION_NOTIFICATION_ID,
                                         NotificationUtility.
